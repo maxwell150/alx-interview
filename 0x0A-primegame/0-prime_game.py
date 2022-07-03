@@ -40,17 +40,18 @@ def isWinner(x, nums):
     Ben = 0
     Maria = 0
     game = None
-    for r in range(x):
-        numlist = []
-        for num in range(nums[r] + 1):
-            numlist.append(num + 1)
-        game = winner(nums[r], numlist)
-        if game == "Ben":
-            Ben += 1
-        if game == "Maria":
-            Maria += 1
-    if Ben > Maria:
-        return "Ben"
-    if Maria > Ben:
-        return "Maria"
-    return None
+    if x <= 10000 and len(nums) <= 10000:
+        for r in range(x):
+            numlist = []
+            for num in range(nums[r] + 1):
+                numlist.append(num + 1)
+            game = winner(nums[r], numlist)
+            if game == "Ben":
+                Ben += 1
+            if game == "Maria":
+                Maria += 1
+        if Ben > Maria:
+            return "Ben"
+        if Maria > Ben:
+            return "Maria"
+        return None
